@@ -6,6 +6,11 @@ const app = express();
 // Connect Database
 connectDB();
 
+//Init Middleware, Body parser is included in experss
+//So here its the middleware for body-parser
+
+app.use(express.json({ extended: true }));
+
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/posts', require('./routes/api/posts'));

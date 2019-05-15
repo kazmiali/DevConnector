@@ -37,12 +37,17 @@ router.post(
 			let user = await User.findOne({ email });
 
 			if (user) {
-				return res
-					.status(400)
-					.json({ errors: [{ msg: 'User already exists' }] });
+				return (
+					res
+						.status(400)
+						//here we are using this syntax for .json() to send the
+						//error in a arrayObj like format
+						.json({ errors: [{ msg: 'User already exists' }] })
+				);
 			}
 			// Get Users Gravatar
-
+			// Gravatar normally checks email and give a image
+			// of that email
 			const avatar = gravatar.url(email, {
 				s: '200',
 				r: 'pg',
@@ -60,6 +65,7 @@ router.post(
 
 			const salt = await bcrypt.genSalt(10);
 
+			//it stores the hash in user.password
 			user.password = await bcrypt.hash(password, salt);
 
 			await user.save();

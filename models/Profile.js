@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+// Everything in Mongoose starts with a Schema. Each schema maps to a
+// MongoDB collection and defines the shape of the documents within that collection.
 // Create Schema
 const ProfileSchema = new Schema({
 	user: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
+		type: Schema.Types.ObjectId,
+		ref: 'users'
 	},
 	// handle: {
 	// 	type: String,
@@ -117,4 +118,6 @@ const ProfileSchema = new Schema({
 	}
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+//Here at the end we are creating
+// 															this is modelname & Its The Schema to make model
+module.exports = mongoose.model('profile', ProfileSchema);

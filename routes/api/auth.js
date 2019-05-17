@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
-const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator/check');
+
+const User = require('../../models/User');
 // @route GET api/auth
-// @desc Test routes
+// @desc Getting User
 // @access Public
 
 router.get('/', auth, async (req, res) => {

@@ -1,16 +1,22 @@
-import React from 'react';
-import { Link, Fragment } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
+const { logout } = require('../../actions/auth');
 
 //In react we dont have to use href we use links
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
 		<ul>
 			<li>
+				<i className='fas fa-sign-out-alt' />{' '}
+				<Link to='/dashboard'>
+					<span className='hide-sm'>Dashboard</span>
+				</Link>
+			</li>
+			<li>
 				<a onClick={logout} href='#!'>
-					<i className='fas fa-sign-out-alt' />
+					<i className='fas fa-sign-out-alt' />{' '}
 					<span className='hide-sm'>Logout</span>
 				</a>
 			</li>
@@ -36,11 +42,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				<Link to='/'>
 					<i className='fas fa-code' /> DevConnector
 				</Link>
-				{/* we are saying if not loading then do that */}
-				{!loading && (
-					<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-				)}
+				{/* we are saying if not loading then do that
+					if loading == false then return the second thing because && has a higher precedence than this && */}
 			</h1>
+			{!loading && (
+				<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+			)}
 		</nav>
 	);
 };

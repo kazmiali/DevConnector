@@ -6,6 +6,7 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
 
 const Profile = require('../../models/Profile');
+const Post = require('../../models/Post');
 const User = require('../../models/User');
 // @route GET api/profile/me
 // @desc  Get current user's Profile
@@ -21,7 +22,7 @@ router.get('/me', auth, async (req, res) => {
 			'user',
 			['name', 'avatar']
 		);
-		console.log('req user ', req.user);
+		// console.log('req user ', req.user);
 
 		if (!profile) {
 			return res.status(400).json({ msg: 'There is no profile for this user' });
@@ -176,6 +177,9 @@ router.get('/user/:user_id', async (req, res) => {
 
 router.delete('/', auth, async (req, res) => {
 	try {
+		// Remove User Posts
+		await Post.deleteMany({ user: req.user.id });
+
 		// Remove Profile
 		// FindByIdAndRemove can also be used
 		const profile = await Profile.findOneAndRemove({ user: req.user.id });

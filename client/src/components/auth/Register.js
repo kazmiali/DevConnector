@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 // connect is used whenever we have to use redux with react like when we have to use action in the component. And we also have to add it to the export default look below
 import { connect } from 'react-redux';

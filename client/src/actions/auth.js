@@ -6,23 +6,23 @@ import {
 	AUTH_ERROR,
 	LOGIN_FAIL,
 	LOGIN_SUCCESS,
-	LOGOUT_FAIL,
-	LOGOUT_SUCCESS
+	LOGOUT,
+	CLEAR_PROFILE
 } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
 
 // Load User
 // Check if there is a token ? put in global header, if there is a token in local storage we are gonna always send that
+
 export const loadUser = () => async dispatch => {
-	// Check local storage token
 	if (localStorage.token) {
 		setAuthToken(localStorage.token);
 	}
 
 	try {
 		const res = await axios.get('/api/auth');
-		// Getting user data and dispatching it
+
 		dispatch({
 			type: USER_LOADED,
 			payload: res.data
@@ -33,7 +33,6 @@ export const loadUser = () => async dispatch => {
 		});
 	}
 };
-
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {
 	const config = {
@@ -46,7 +45,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 
 	try {
 		// we are doing only api/users not whole url because of the proxy added to json file
-		const res = await axios.post('api/users', body, config);
+		const res = await axios.post('/api/users', body, config);
 
 		dispatch({
 			type: REGISTER_SUCCESS,
@@ -77,7 +76,7 @@ export const login = (email, password) => async dispatch => {
 
 	try {
 		// we are doing only api/users not whole url because of the proxy added to json file
-		const res = await axios.post('api/auth', body, config);
+		const res = await axios.post('/api/auth', body, config);
 
 		dispatch({
 			type: LOGIN_SUCCESS,
@@ -95,4 +94,10 @@ export const login = (email, password) => async dispatch => {
 			type: LOGIN_FAIL
 		});
 	}
+};
+
+// LogOut / Clear Profile
+export const logout = () => dispatch => {
+	dispatch({ type: CLEAR_PROFILE });
+	dispatch({ type: LOGOUT });
 };

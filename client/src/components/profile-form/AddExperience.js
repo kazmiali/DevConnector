@@ -23,7 +23,7 @@ const AddExperience = ({ addExperience, history }) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
 	return (
-		<Fragment>
+		<div className='mr-tb'>
 			<h1 class='large text-primary'>Add An Experience</h1>
 			<p class='lead'>
 				<i class='fas fa-code-branch' /> Add any developer/programming positions
@@ -113,7 +113,7 @@ const AddExperience = ({ addExperience, history }) => {
 					Go Back
 				</Link>
 			</form>
-		</Fragment>
+		</div>
 	);
 };
 

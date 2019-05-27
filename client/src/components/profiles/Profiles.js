@@ -12,9 +12,9 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 	return (
 		<div>
 			{loading ? (
-				<Spinner />
+				<Spinner className='mr-tb' />
 			) : (
-				<Fragment>
+				<div className='mr-tb'>
 					<h1 className='large text-primary'>Developers</h1>
 					<p className='lead'>
 						<i className='fab fa-connectdevelop' /> Browse and connect with
@@ -29,7 +29,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 							<h4>No Profiles Found...</h4>
 						)}
 					</div>
-				</Fragment>
+				</div>
 			)}
 		</div>
 	);

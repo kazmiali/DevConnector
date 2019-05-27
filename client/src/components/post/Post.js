@@ -13,9 +13,9 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 		getPost(match.params.id);
 	}, [getPost, match.params.id]);
 	return loading || post === null ? (
-		<Spinner />
+		<Spinner className='mr-tb' />
 	) : (
-		<Fragment>
+		<Fragment className='mr-tb'>
 			<Link to='/posts' className='btn btn-light'>
 				Back to Posts
 			</Link>

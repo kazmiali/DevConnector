@@ -21,7 +21,7 @@ const Profile = ({
 		getProfileById(match.params.id);
 	}, [getProfileById, match.params.id]);
 	return (
-		<Fragment>
+		<div className='mr-tb'>
 			{profile === null || loading ? (
 				<Spinner />
 			) : (
@@ -77,7 +77,7 @@ const Profile = ({
 					</div>
 				</Fragment>
 			)}
-		</Fragment>
+		</div>
 	);
 };
 

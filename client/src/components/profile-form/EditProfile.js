@@ -46,9 +46,7 @@ const EditProfile = ({
 			youtube: loading || !profile.social ? '' : profile.social.youtube,
 			instagram: loading || !profile.social ? '' : profile.social.instagram
 		});
-	}, [
-		getCurrentProfile,
-	]);
+	}, [getCurrentProfile]);
 
 	const {
 		company,
@@ -74,7 +72,7 @@ const EditProfile = ({
 	};
 
 	return (
-		<Fragment>
+		<div className='container'>
 			<h1 className='large text-primary'>Create Your Profile</h1>
 			<p className='lead'>
 				<i className='fas fa-user' /> Let's get some information to make your
@@ -247,7 +245,7 @@ const EditProfile = ({
 					Go Back
 				</Link>
 			</form>
-		</Fragment>
+		</div>
 	);
 };
 

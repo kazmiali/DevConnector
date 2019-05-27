@@ -13,20 +13,21 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 		getPost(match.params.id);
 	}, [getPost]);
 	return loading || post === null ? (
-		<Spinner />
+		<Spinner className='container' />
 	) : (
-		<Fragment>
+		<div className='container'>
 			<Link to='/posts' className='btn btn-light'>
 				Back to Posts
 			</Link>
 			<PostItem post={post} showActions={false} />
 			<CommentForm postId={post._id} />
 			<div className='comments'>
+				<h1 className='text-dark'>All Comments...</h1>
 				{post.comments.map(comment => (
-					<CommentItem key={comment._id} comment={comment} postId={postId} />
+					<CommentItem key={comment._id} comment={comment} postId={post._id} />
 				))}
 			</div>
-		</Fragment>
+		</div>
 	);
 };
 

@@ -10,7 +10,8 @@ const PostItem = ({
 	addLike,
 	removeLike,
 	auth,
-	post: { _id, text, name, avatar, user, likes, comments, date, showActions }
+	post: { _id, text, name, avatar, user, likes, comments, date },
+	showActions
 }) => (
 	<div className='post bg-white p-1 my-1'>
 		<div>

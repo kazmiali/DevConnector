@@ -12,6 +12,7 @@ import AddExperience from './components/profile-form/AddExperience';
 import AddEducation from './components/profile-form/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Profile from './components/profile/Profile';
 // Redux - Redux has a store
 // Provider connect the redux with react because redux is seperate from react
 import { Provider } from 'react-redux';
@@ -44,6 +45,7 @@ const App = () => {
 							<Route exact path='/register' component={Register} />
 							<Route exact path='/login' component={Login} />
 							<Route exact path='/profiles' component={Profiles} />
+							<PrivateRoute exact path='/profile/:id' component={Profile} />
 							<PrivateRoute exact path='/dashboard' component={Dashboard} />
 
 							<PrivateRoute

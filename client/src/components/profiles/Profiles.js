@@ -10,7 +10,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 		getProfiles();
 	}, [getProfiles]);
 	return (
-		<div className='container'>
+		<div>
 			{loading ? (
 				<Spinner />
 			) : (

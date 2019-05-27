@@ -13,13 +13,13 @@ const CommentItem = ({
 }) => {
 	return (
 		<div className='post bg-white p-1 my-1'>
-			<div>
+			<Fragment>
 				<Link to={`/profile/${user}`}>
 					<img className='round-img' src={avatar} alt='' />
 					<h4>{name}</h4>
 				</Link>
-			</div>
-			<div>
+			</Fragment>
+			<Fragment>
 				<p className='my-1'>{text}</p>
 				<p className='post-date'>
 					Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>{' '}
@@ -33,7 +33,7 @@ const CommentItem = ({
 						<i classNameName='fas fa-times' />
 					</button>
 				)}
-			</div>
+			</Fragment>
 		</div>
 	);
 };

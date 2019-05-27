@@ -10,13 +10,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 		<ul>
 			<li>
 				<Link to='/profiles'>
-					<i className='fa fa-users hide-sm' />
-					<span>Developers</span>
+					<i className='fa fa-users hide-sm' /> <span> Developers</span>
 				</Link>
 			</li>
 			<li>
 				<Link to='/posts'>
-					<i className='fa fa-dashboard' /> <span>Posts</span>
+					<i className='far fa-comment-alt hide-sm' />
+					<span> Posts</span>
 				</Link>
 			</li>
 			<li>

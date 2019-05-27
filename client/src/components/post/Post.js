@@ -11,11 +11,11 @@ import CommentItem from '../post/CommentItem';
 const Post = ({ getPost, post: { post, loading }, match }) => {
 	useEffect(() => {
 		getPost(match.params.id);
-	}, [getPost]);
+	}, [getPost, match.params.id]);
 	return loading || post === null ? (
-		<Spinner className='container' />
+		<Spinner />
 	) : (
-		<div className='container'>
+		<Fragment>
 			<Link to='/posts' className='btn btn-light'>
 				Back to Posts
 			</Link>
@@ -27,7 +27,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 					<CommentItem key={comment._id} comment={comment} postId={post._id} />
 				))}
 			</div>
-		</div>
+		</Fragment>
 	);
 };
 

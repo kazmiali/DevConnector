@@ -57,7 +57,7 @@ const Register = props => {
 	}
 	return (
 		<Fragment>
-			<div className='container'>
+			<div>
 				<h1 className='large text-primary'>Sign Up</h1>
 				<p className='lead'>
 					<i className='fas fa-user' /> Create Your Account

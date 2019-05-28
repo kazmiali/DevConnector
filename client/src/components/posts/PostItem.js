@@ -21,7 +21,7 @@ const PostItem = ({
 			</Link>
 		</div>
 		<div>
-			<p className='my-1'>{text}</p>
+			<p className='mb-1'>{text}</p>
 			<p className='post-date'>
 				Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>
 			</p>

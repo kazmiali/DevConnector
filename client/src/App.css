@@ -151,9 +151,13 @@ img {
 	color: #333;
 }
 
+.alert:first-child {
+	margin: 4rem 0rem 0rem 0rem;
+}
+
 .alert {
 	padding: 0.8rem;
-	margin: 1rem 0;
+	margin: 1rem 0rem 0rem 0rem;
 	opacity: 0.9;
 	background: var(--light-color);
 	color: #333;
@@ -444,6 +448,11 @@ button {
 
 .profile-github .repo {
 	display: flex;
+	justify-content: space-between;
+}
+
+.profile-github h4 {
+	margin-right: 1rem;
 }
 
 .profile-github .repo > div:first-child {
@@ -494,7 +503,7 @@ button {
 /* Mobile Styles */
 @media (max-width: 700px) {
 	.container {
-		margin-top: 8rem;
+		margin-top: 3rem;
 	}
 
 	.hide-sm {
@@ -564,6 +573,14 @@ button {
 		flex-direction: column;
 	}
 
+	.profile-github .repo {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.profile-github h4 {
+		margin: 0 0 0.6rem 0;
+	}
 	.dash-buttons a {
 		display: block;
 		width: 100%;
@@ -575,6 +592,21 @@ button {
 	}
 	.post a,
 	.post button {
-		padding: 0.3rem 0.4rem;
+		padding: 0.3rem 0.7rem;
+	}
+}
+
+@media (max-width: 380px) {
+	.hide-xs {
+		display: none;
+	}
+
+	.table {
+		font-size: 0.7rem;
+	}
+
+	.table .btn {
+		padding: 0.4rem 0.8rem;
+		font-size: 0.7rem;
 	}
 }

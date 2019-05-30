@@ -12,14 +12,14 @@ const CommentItem = ({
 	deleteComment
 }) => {
 	return (
-		<div className='post bg-white p-1 my-1'>
-			<Fragment>
+		<div className='post bg-white p-1 my-1 mr-tb'>
+			<div>
 				<Link to={`/profile/${user}`}>
 					<img className='round-img' src={avatar} alt='' />
 					<h4>{name}</h4>
 				</Link>
-			</Fragment>
-			<Fragment>
+			</div>
+			<div>
 				<p className='my-1'>{text}</p>
 				<p className='post-date'>
 					Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>{' '}
@@ -27,13 +27,13 @@ const CommentItem = ({
 				{!auth.loading && user === auth.user._id && (
 					<button
 						onClick={e => deleteComment(postId, _id)}
-						classNameName='btn btn-danger'
+						className='btn btn-danger'
 						type='button'
 					>
-						<i classNameName='fas fa-times' />
+						<i className='fas fa-times' />
 					</button>
 				)}
-			</Fragment>
+			</div>
 		</div>
 	);
 };

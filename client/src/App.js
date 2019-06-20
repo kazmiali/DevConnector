@@ -29,7 +29,7 @@ if (localStorage.token) {
 
 // Fragement is just like a ghost element, won't be shown
 // in the DOM
-// Wrap all in <Provider> and pass store={store} to {Provider}-
+// Wrap all in <Provider> and pass store={store} to {Provider}
 const App = () => {
 	// When we give 2nd param of [], its gonna work like ComponentDidMount()
 	useEffect(() => {

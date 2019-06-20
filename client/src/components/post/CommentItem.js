@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const CommentItem = ({
 	deleteComment
 }) => {
 	return (
-		<div className='post bg-white p-1 my-1 mr-tb'>
+		<div className='post bg-white p-1 my-1'>
 			<div>
 				<Link to={`/profile/${user}`}>
 					<img className='round-img' src={avatar} alt='' />

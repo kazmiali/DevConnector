@@ -8,6 +8,7 @@ const app = express();
 connectDB();
 
 //Init Middleware, Body parser is included in experss
+
 //So here its the middleware for body-parser
 app.use(express.json({ extended: true }));
 

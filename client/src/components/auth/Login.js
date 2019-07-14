@@ -30,7 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
 	}
 	return (
 		<Fragment>
-			<div className='mr-tb'>
+			<div className='mr-tb login-center'>
 				<h1 className='large text-primary'>Login</h1>
 				<p className='lead'>
 					<i className='fas fa-user' /> Create Your Account

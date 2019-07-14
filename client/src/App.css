@@ -47,6 +47,14 @@ img {
 	margin-bottom: 3rem;
 }
 
+.spinner-img {
+	width: 200px;
+	display: flex;
+	margin: 5rem 0rem 0rem 0rem;
+	justify-content: center;
+	align-items: center;
+}
+
 /* Text Styles*/
 .x-large {
 	font-size: 4rem;
@@ -506,7 +514,19 @@ button {
 /* Mobile Styles */
 @media (max-width: 700px) {
 	.container {
-		margin-top: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.mr-tb {
+		margin-top: 9rem;
+	}
+
+	.alert {
+		width: relative;
+		position: absolute;
+		top: 48px;
 	}
 
 	.hide-sm {

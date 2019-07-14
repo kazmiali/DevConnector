@@ -1,6 +1,8 @@
 {
 	"short_name": "DevConector",
 	"name": "DevConnector - Social Media for developers",
+	"theme_color": "#17a2b8",
+
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -10,6 +12,8 @@
 	],
 	"start_url": ".",
 	"display": "standalone",
-	"theme_color": "#000000",
+	"scope": "/",
+	"description": "A MERN Stack Social Media PWA",
+	"orientation": "any",
 	"background_color": "#ffffff"
 }

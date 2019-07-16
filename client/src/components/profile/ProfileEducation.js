@@ -24,8 +24,7 @@ const ProfileEducation = ({
 );
 
 ProfileEducation.propTypes = {
-	// Here the experince is being passed by props like <component props={props}>
-	education: PropTypes.array.isRequired
+	education: PropTypes.object.isRequired
 };
 
 export default ProfileEducation;

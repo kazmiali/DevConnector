@@ -116,10 +116,8 @@ export const createProfile = (
 		dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
 		// If we are not editing the profile then redirect
-		if (!edit) {
-			// Redirect in actions is diff than react so we do something like this then we have to use history with a react-router-dom-method called withRouter
-			history.push('/dashboard');
-		}
+		// Redirect in actions is diff than react so we do something like this then we have to use history with a react-router-dom-method called withRouter
+		history.push('/dashboard');
 	} catch (err) {
 		// If the form filling person bhool jaye koi field to ye res se errors fetch kr k os error ki array me mapping kr k alers show krta he jitni bhi hon
 		const errors = err.response.data.errors;
@@ -215,46 +213,50 @@ export const addEducation = (formData, history) => async dispatch => {
 // Delete experience
 
 export const deleteExperience = id => async dispatch => {
-	try {
-		const res = await axios.delete(`/api/profile/experience/${id}`);
+	if (window.confirm('Are you sure? This cannot be undone!')) {
+		try {
+			const res = await axios.delete(`/api/profile/experience/${id}`);
 
-		dispatch({
-			type: UPDATE_PROFILE,
-			payload: res.data
-		});
+			dispatch({
+				type: UPDATE_PROFILE,
+				payload: res.data
+			});
 
-		dispatch(setAlert('Experience Deleted', 'danger'));
-	} catch (err) {
-		dispatch({
-			type: PROFILE_ERROR,
-			payload: {
-				msg: err.response.statusText,
-				status: err.response.status
-			}
-		});
+			dispatch(setAlert('Experience Deleted', 'danger'));
+		} catch (err) {
+			dispatch({
+				type: PROFILE_ERROR,
+				payload: {
+					msg: err.response.statusText,
+					status: err.response.status
+				}
+			});
+		}
 	}
 };
 
 // Delete education
 
 export const deleteEducation = id => async dispatch => {
-	try {
-		const res = await axios.delete(`/api/profile/education/${id}`);
+	if (window.confirm('Are you sure? This cannot be undone!')) {
+		try {
+			const res = await axios.delete(`/api/profile/education/${id}`);
 
-		dispatch({
-			type: UPDATE_PROFILE,
-			payload: res.data
-		});
+			dispatch({
+				type: UPDATE_PROFILE,
+				payload: res.data
+			});
 
-		dispatch(setAlert('Education Deleted', 'danger'));
-	} catch (err) {
-		dispatch({
-			type: PROFILE_ERROR,
-			payload: {
-				msg: err.response.statusText,
-				status: err.response.status
-			}
-		});
+			dispatch(setAlert('Education Deleted', 'danger'));
+		} catch (err) {
+			dispatch({
+				type: PROFILE_ERROR,
+				payload: {
+					msg: err.response.statusText,
+					status: err.response.status
+				}
+			});
+		}
 	}
 };
 

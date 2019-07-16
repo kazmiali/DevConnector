@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-	--primary-color: #17a2b8;
+	--primary-color: #e17421;
 	--dark-color: #343a40;
 	--light-color: #f4f4f4;
 	--danger-color: #dc3545;
@@ -11,6 +11,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	border-radius: 5px;
 }
 
 body {
@@ -49,11 +50,12 @@ img {
 
 /* Spinner Styles*/
 
-.spinner-wrapper {
+.center-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	width: 100%;
 }
 
 .spinner-img {
@@ -156,19 +158,16 @@ img {
 	margin-right: 0.5rem;
 	transition: opacity 0.2s ease-in;
 	outline: none;
+	color: var(--primary-color);
 }
 
 .badge {
 	font-size: 0.8rem;
-	padding: 0.1rem;
+	padding: 0.2rem;
 	text-align: center;
 	margin: 0.3rem;
 	background: var(--light-color);
 	color: #333;
-}
-
-.alert:first-child {
-	margin: 4rem 0rem 0rem 0rem;
 }
 
 .alert {
@@ -177,6 +176,10 @@ img {
 	opacity: 0.9;
 	background: var(--light-color);
 	color: #333;
+}
+
+.alert:first-child {
+	margin-top: 4rem;
 }
 
 .btn-primary,
@@ -192,7 +195,7 @@ img {
 .badge-light,
 .alert-light {
 	background: var(--light-color);
-	color: #333;
+	color: var(--primary-color);
 }
 
 .btn-dark,
@@ -249,7 +252,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -343,6 +346,7 @@ button {
 	color: #fff;
 	padding: 0.45rem;
 	margin: 0 0.25rem;
+	font-weight: 800;
 }
 
 .navbar a:hover {
@@ -356,8 +360,15 @@ button {
 /* Landing Page */
 .landing {
 	position: relative;
-	background: url('./img/showcase.jpg') no-repeat center center/cover;
+	background: url('./img/try.jpeg') no-repeat center center/cover;
 	height: 100vh;
+}
+
+.title-outline {
+	background-color: #e1742193;
+	padding: 5px;
+	border: 5px solid white;
+	border-radius: 10px;
 }
 
 .landing-inner {
@@ -518,20 +529,40 @@ button {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
-	.container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	.mr-tb {
 		margin-top: 9rem;
+		width: 100%;
 	}
 
 	.alert {
-		width: relative;
 		position: absolute;
-		top: 48px;
+		border-radius: 5px;
+		margin-top: 0rem;
+		min-width: 80%;
+		overflow-x: hidden;
+	}
+
+	.alert:first-child {
+		margin-top: 0rem;
+	}
+
+	.alert:first-child {
+		top: 7rem;
+	}
+	.alert:nth-child(2) {
+		top: 11rem;
+	}
+
+	.alert:nth-child(3) {
+		top: 15rem;
+	}
+
+	.alert:nth-child(4) {
+		top: 19rem;
+	}
+
+	.alert:nth-child(5) {
+		top: 23rem;
 	}
 
 	.hide-sm {

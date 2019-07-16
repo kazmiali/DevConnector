@@ -22,7 +22,7 @@ const ProfileExperience = ({
 
 ProfileExperience.propTypes = {
 	// Here the experince is being passed by props like <component props={props}>
-	experience: PropTypes.array.isRequired
+	experience: PropTypes.object.isRequired
 };
 
 export default ProfileExperience;

@@ -48,12 +48,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	);
 	return (
 		<nav className='navbar bg-dark'>
-			<h1>
+			<h1 className='main-title'>
 				<Link to='/'>
-					<i className='fas fa-code' /> DevConnector
+					<i className='fas fa-code' /> DevHub
 				</Link>
-				{/* we are saying if not loading then do that
-					if loading == false then return the second thing because && has a higher precedence than this && */}
 			</h1>
 			{!loading && (
 				<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

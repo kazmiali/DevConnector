@@ -7,7 +7,6 @@ import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
 import { Link } from 'react-router-dom';
-// import { deleteAccount } from '../../actions/profile';
 
 const Dashboard = ({
 	getCurrentProfile,

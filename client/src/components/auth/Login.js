@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 // connect is used whenever we have to use redux with react like when we have to use action in the component. And we also have to add it to the export default look below
 import { connect } from 'react-redux';
@@ -29,8 +29,8 @@ const Login = ({ login, isAuthenticated }) => {
 		return <Redirect to='/dashboard' />;
 	}
 	return (
-		<Fragment>
-			<div className='mr-tb login-center'>
+		<div className='center-wrapper'>
+			<div className='mr-tb'>
 				<h1 className='large text-primary'>Login</h1>
 				<p className='lead'>
 					<i className='fas fa-user' /> Create Your Account
@@ -61,7 +61,7 @@ const Login = ({ login, isAuthenticated }) => {
 					Don't have an account? <Link to='/register'>Sign Up</Link>
 				</p>
 			</div>
-		</Fragment>
+		</div>
 	);
 };
 

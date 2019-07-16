@@ -5,11 +5,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator/check');
-//Getting User model
-// const User = require('../../models/User.js');
+
+// Getting User model
 let User = require('../../models/User.js');
 
-// @route POST api/users
+// @route  POST api/users
 // @desc   Register User
 // @access Public
 
@@ -37,17 +37,12 @@ router.post(
 			let user = await User.findOne({ email });
 
 			if (user) {
-				return (
-					res
-						.status(400)
-						//here we are using this syntax for .json() to send the
-						//error in a arrayObj like format
-						.json({ errors: [{ msg: 'User already exists' }] })
-				);
+				return res
+					.status(400)
+					.json({ errors: [{ msg: 'User already exists' }] });
 			}
 			// Get Users Gravatar
-			// Gravatar normally checks email and give a image
-			// of that email
+			// Gravatar normally checks email and give a image of that email
 			const avatar = gravatar.url(email, {
 				s: '200',
 				r: 'pg',
@@ -62,10 +57,9 @@ router.post(
 			});
 
 			// Encrypt Password
-
 			const salt = await bcrypt.genSalt(10);
 
-			//it stores the hash in user.password
+			// tores the hash in user.password
 			user.password = await bcrypt.hash(password, salt);
 
 			await user.save();

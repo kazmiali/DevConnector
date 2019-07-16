@@ -18,3 +18,5 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
+// I added these 3 properties to the connect method parameters to avoid some bugs

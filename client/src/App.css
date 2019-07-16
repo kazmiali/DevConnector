@@ -47,12 +47,17 @@ img {
 	margin-bottom: 3rem;
 }
 
-.spinner-img {
-	width: 200px;
+/* Spinner Styles*/
+
+.spinner-wrapper {
 	display: flex;
-	margin: 5rem 0rem 0rem 0rem;
 	justify-content: center;
 	align-items: center;
+	height: 100vh;
+}
+
+.spinner-img {
+	width: 250px;
 }
 
 /* Text Styles*/

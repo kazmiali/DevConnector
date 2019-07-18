@@ -48,6 +48,10 @@ img {
 	margin-bottom: 3rem;
 }
 
+.auth-width {
+	min-width: 60%;
+}
+
 /* Spinner Styles*/
 
 .center-wrapper {

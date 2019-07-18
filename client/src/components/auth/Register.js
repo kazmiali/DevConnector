@@ -56,8 +56,8 @@ const Register = props => {
 		return <Redirect to='/dashboard' />;
 	}
 	return (
-		<Fragment>
-			<div className='mr-tb'>
+		<div className='center-wrapper'>
+			<div className='mr-tb auth-width'>
 				<h1 className='large text-primary'>Sign Up</h1>
 				<p className='lead'>
 					<i className='fas fa-user' /> Create Your Account
@@ -110,7 +110,7 @@ const Register = props => {
 					Already have an account? <Link to='/login'>Sign In</Link>
 				</p>
 			</div>
-		</Fragment>
+		</div>
 	);
 };
 

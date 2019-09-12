@@ -3,7 +3,6 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
 const auth = require('../../middleware/auth');
 
-// Getting the models
 const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -30,10 +29,9 @@ router.post(
 		}
 
 		try {
-			// Finding a user by Id and excludign the password
+			// Finding a user by Id and excluding the password
 			const user = await User.findById(req.user.id).select('-password');
 
-			// New Post create
 			const newPost = new Post({
 				text: req.body.text,
 				name: user.name,
@@ -77,7 +75,6 @@ router.get('/:id', auth, async (req, res) => {
 		// Getting a post by finding in the Post by id from params
 		const post = await Post.findById(req.params.id);
 
-		// Check if there's a post or not
 		if (!post) {
 			return status(404).json({ msg: 'No post found' });
 		}
@@ -85,7 +82,7 @@ router.get('/:id', auth, async (req, res) => {
 		await res.json(post);
 	} catch (err) {
 		console.error(err.message);
-		// Check if ID is not valid
+		// Check if id is not valid
 		if (err.kind === 'ObjectId') {
 			return res.status(404).json({ msg: 'No post found' });
 		}
@@ -94,7 +91,7 @@ router.get('/:id', auth, async (req, res) => {
 });
 
 // @route  DELETE api/posts/:id
-// @desc   Delete a posts
+// @desc   Delete a post
 // @access Private
 
 router.delete('/:id', auth, async (req, res) => {
@@ -102,7 +99,6 @@ router.delete('/:id', auth, async (req, res) => {
 		// Getting a post by finding in the Post by id from params
 		const post = await Post.findById(req.params.id);
 
-		// If there is no post
 		if (!post) {
 			return res.status(404).json({ msg: 'No post found' });
 		}
@@ -112,7 +108,6 @@ router.delete('/:id', auth, async (req, res) => {
 			return res.status(401).json({ msg: 'User not authorized' });
 		}
 
-		// Remove post
 		await post.remove();
 
 		await res.json({ msg: 'Post Successfully Removed' });
@@ -139,7 +134,7 @@ router.put('/like/:id', auth, async (req, res) => {
 		const post = await Post.findById(req.params.id);
 		// Here if post's likesArray has user whose id matches the login
 		// user id and the return of the filter is greater than 0
-		// then the post is already like
+		// then the post is already liked
 		if (
 			post.likes.filter(like => like.user.toString() === req.user.id).length > 0
 		) {
@@ -149,7 +144,6 @@ router.put('/like/:id', auth, async (req, res) => {
 		// Add the user object in like array
 		post.likes.unshift({ user: req.user.id });
 
-		// Save
 		await post.save();
 
 		// Returning post.likes[]

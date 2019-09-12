@@ -10,7 +10,6 @@ const PostSchema = new Schema({
 		type: String,
 		required: true
 	},
-	// Name of post
 	name: {
 		type: String
 	},

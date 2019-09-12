@@ -6,7 +6,7 @@ const app = express();
 
 connectDB();
 
-// Built in middleware for body-parser
+// Middleware for body-parser
 app.use(express.json({ extended: true }));
 
 app.use('/api/users', require('./routes/api/users'));

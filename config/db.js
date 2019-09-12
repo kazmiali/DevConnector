@@ -5,6 +5,7 @@ const dbUrl = config.get('mongoURI');
 const connectDB = async () => {
 	try {
 		await mongoose.connect(dbUrl, {
+			// added to avoid bugs
 			useNewUrlParser: true,
 			useCreateIndex: true,
 			useFindAndModify: false
@@ -18,5 +19,3 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
-
-// I added these 3 properties to the connect method parameters to avoid some bugs

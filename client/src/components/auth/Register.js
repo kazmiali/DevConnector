@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
@@ -92,7 +92,6 @@ const Register = props => {
     );
 };
 
-// The propTypes tell the developer that this setAlert which is a func is required for component to work properly
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,

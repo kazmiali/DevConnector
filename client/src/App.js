@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer/Footer';
 import Landing from './components/layout/Landing';
 import Routes from './components/routing/Routes';
 
@@ -21,13 +22,14 @@ const App = () => {
     return (
         <Provider store={store}>
             <Router>
-                <Fragment>
+                <div className='app'>
                     <Navbar />
                     <Switch>
                         <Route exact path='/' component={Landing} />
                         <Route component={Routes} />
                     </Switch>
-                </Fragment>
+                    <Footer />
+                </div>
             </Router>
         </Provider>
     );

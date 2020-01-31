@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 const { logout } = require('../../actions/auth');
@@ -8,22 +8,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>
+                <NavLink to='/profiles'>
                     <i className='fa fa-users hide-sm' />{' '}
                     <span> Developers</span>
-                </Link>
+                </NavLink>
             </li>
             <li>
-                <Link to='/posts'>
+                <NavLink to='/posts'>
                     <i className='far fa-comment-alt hide-sm' />
                     <span> Posts</span>
-                </Link>
+                </NavLink>
             </li>
             <li>
-                <Link to='/dashboard'>
+                <NavLink to='/dashboard'>
                     <i className='fas fa-laptop-code hide-sm' />{' '}
                     <span>Dashboard</span>
-                </Link>
+                </NavLink>
             </li>
             <li>
                 <a onClick={logout} href='#!'>
@@ -37,22 +37,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const guestLinks = (
         <ul>
             <li>
-                <Link to='/profiles'>Developers</Link>
+                <NavLink to='/profiles'>Developers</NavLink>
             </li>
             <li>
-                <Link to='/register'>Register</Link>
+                <NavLink to='/register'>Register</NavLink>
             </li>
             <li>
-                <Link to='/login'>Login</Link>
+                <NavLink to='/login'>Login</NavLink>
             </li>
         </ul>
     );
     return (
         <nav className='navbar bg-dark'>
             <h1 className='main-title'>
-                <Link to='/'>
+                <NavLink to='/'>
                     <i className='fas fa-code' /> DevHub
-                </Link>
+                </NavLink>
             </h1>
             {!loading && (
                 <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

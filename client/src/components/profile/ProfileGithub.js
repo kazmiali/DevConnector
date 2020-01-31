@@ -4,60 +4,58 @@ import { connect } from 'react-redux';
 import { getGithubRepos } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 
-// here repos will come from the state
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
-	useEffect(() => {
-		getGithubRepos(username);
-	}, [getGithubRepos, username]);
-	return (
-		<div className='profile-github'>
-			<h2 className='text-primary my-1'>Github Repos</h2>
-			{repos === null ? (
-				<Spinner />
-			) : (
-				repos.map((repo, i) => (
-					<div key={repo.id} className='repo bg-white p-1 my-1'>
-						<Fragment>
-							<h4>
-								<a
-									href={repo.html_url}
-									target='_blank'
-									rel='noopener noreferrer'
-								>
-									{repo.name}
-								</a>
-							</h4>
-							<p>{repo.description}</p>
-						</Fragment>
-						<Fragment>
-							<ul>
-								<li className='badge badge-primary'>
-									Stars: {repo.stargazers_count}
-								</li>
-								<li className='badge badge-dark'>
-									Wachers: {repo.watchers_count}
-								</li>
-								<li className='badge badge-light'>Forks: {repo.forks_count}</li>
-							</ul>
-						</Fragment>
-					</div>
-				))
-			)}
-		</div>
-	);
+    useEffect(() => {
+        getGithubRepos(username);
+    }, [getGithubRepos, username]);
+    return (
+        <div className='profile-github'>
+            <h2 className='text-primary my-1'>Github Repos</h2>
+            {repos === null ? (
+                <Spinner />
+            ) : (
+                repos.map((repo, i) => (
+                    <div key={repo.id} className='repo bg-white p-1 my-1'>
+                        <Fragment>
+                            <h4>
+                                <a
+                                    href={repo.html_url}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    {repo.name}
+                                </a>
+                            </h4>
+                            <p>{repo.description}</p>
+                        </Fragment>
+                        <Fragment>
+                            <ul>
+                                <li className='badge badge-primary'>
+                                    Stars: {repo.stargazers_count}
+                                </li>
+                                <li className='badge badge-dark'>
+                                    Wachers: {repo.watchers_count}
+                                </li>
+                                <li className='badge badge-light'>
+                                    Forks: {repo.forks_count}
+                                </li>
+                            </ul>
+                        </Fragment>
+                    </div>
+                ))
+            )}
+        </div>
+    );
 };
 
 ProfileGithub.propTypes = {
-	getGithubRepos: PropTypes.func.isRequired,
-	repos: PropTypes.array.isRequired,
-	username: PropTypes.string.isRequired
+    getGithubRepos: PropTypes.func.isRequired,
+    repos: PropTypes.array.isRequired,
+    username: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-	repos: state.profile.repos
+    repos: state.profile.repos,
 });
 
-export default connect(
-	mapStateToProps,
-	{ getGithubRepos }
-)(ProfileGithub);
+export default connect(mapStateToProps, { getGithubRepos })(ProfileGithub);

@@ -59,7 +59,7 @@ const Footer = () => (
         <div className='footer-bottom'>
             <div className='footer-bottom-section'>
                 <span className='copyright'>
-                    &copy; E-Tender 2020. All Rights Reserved.
+                    &copy; DevHub 2020. All Rights Reserved.
                 </span>
                 <div className='tp'>
                     <NavLink to='/privacy-policy' className='links'>

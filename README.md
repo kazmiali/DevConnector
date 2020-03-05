@@ -7,7 +7,7 @@ This is a MERN stack application made by me. It is a small social network app th
 ## Quick Start
 
 ```
-# change default.json file in config folder
+# add  a default.json file in config folder
 
 # this file is located in config/default.json
 

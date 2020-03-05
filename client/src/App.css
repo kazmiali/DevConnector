@@ -46,6 +46,7 @@ img {
     margin: auto;
     overflow: hidden;
     padding: 0 2rem;
+    min-height: 80vh;
 }
 
 .mr-tb {

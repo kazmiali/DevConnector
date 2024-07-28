@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import {
-    FaFacebookF,
-    FaTwitter,
-    FaInstagram,
-    FaLinkedinIn,
-} from 'react-icons/fa';
+// import {
+//     FaFacebookF,
+//     FaTwitter,
+//     FaInstagram,
+//     FaLinkedinIn,
+// } from 'react-icons/fa';
 
 import './Footer.css';
 
@@ -85,28 +85,28 @@ const Footer = () => (
                         href='https://www.facebook.com/etender'
                         target='blank'
                     >
-                        <FaFacebookF />
+                        {/* <FaFacebookF /> */}
                     </a>
                     <a
                         className='social-link'
                         target='blank'
                         href='https://twitter.com/etender'
                     >
-                        <FaTwitter />
+                        {/* <FaTwitter /> */}
                     </a>
                     <a
                         className='social-link'
                         target='blank'
                         href='https://www.instagram.com/etender'
                     >
-                        <FaInstagram />
+                        {/* <FaInstagram /> */}
                     </a>
                     <a
                         className='social-link'
                         target='blank'
                         href='https://pk.linkedin.com/etender'
                     >
-                        <FaLinkedinIn />
+                        {/* <FaLinkedinIn /> */}
                     </a>
                 </div>
             </div>

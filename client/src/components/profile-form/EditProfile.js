@@ -49,7 +49,7 @@ const EditProfile = ({
             instagram:
                 loading || !profile.social ? '' : profile.social.instagram,
         });
-    }, [getCurrentProfile]);
+    }, [getCurrentProfile, loading, profile]);
 
     const {
         company,
